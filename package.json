@@ -13,6 +13,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "generate-gitignore": "^0.2.6"
+    "generate-gitignore": "^0.2.6",
+    "nodemon": "^3.0.1"
   }
 }
