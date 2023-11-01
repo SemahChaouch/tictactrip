@@ -59,3 +59,5 @@ function addSpace(sentence: string): string {
     }};
   return result;
   }
+
+ export default justifyText;

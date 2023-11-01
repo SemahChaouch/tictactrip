@@ -17,6 +17,7 @@ Client.on('connect', () => {
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use( bodyParser.text() );
 app.use('/', require('./src/routes'));
 app.listen(port, () => {
     console.log(`Server listening at http://localhost:${port}`);
