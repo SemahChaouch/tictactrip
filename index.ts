@@ -1,7 +1,7 @@
 import express from 'express';
 const redis = require('redis');
 import bodyParser from 'body-parser';
-
+const test = true
 const app = express();
 const port = 3000;
 const Client = redis.createClient({ socket: { host: process.env.REDIS_HOST, port: process.env.REDIS_PORT } });
@@ -19,9 +19,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use( bodyParser.text() );
 app.use('/', require('./src/routes'));
-
+if (test) {
 app.listen(port, () => {
-    console.log( `server running on port ${port}` );})
+    console.log( `server running on port ${port}` );})};
 
 module.exports = { Client, app };
 export default Client;
