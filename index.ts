@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 
 const app = express();
 const port = 3000;
-const Client = redis.createClient();
+const Client = redis.createClient({ socket: { host: process.env.REDIS_HOST, port: process.env.REDIS_PORT } });
 Client.connect();
 
 Client.on('error', (err: Error) => {
@@ -12,16 +12,16 @@ Client.on('error', (err: Error) => {
 });
 
 Client.on('connect', () => {
-    console.log('Redis client connected');
+    console.log('Redis connected');
 });
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use( bodyParser.text() );
 app.use('/', require('./src/routes'));
+
 app.listen(port, () => {
-    console.log(`Server listening at http://localhost:${port}`);
-});
+    console.log( `server running on port ${port}` );})
 
-
+module.exports = { Client, app };
 export default Client;
