@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import Client from '../../index';
 const { generateToken, setToken } = require( '../utils/auth.utils' );
 
-export const postLogin = async( req: Request, res: Response ) => {
+export const login = async( req: Request, res: Response ) => {
     const emailRegex: RegExp = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
     if ( typeof req.body.email !== 'string' || !req.body.email.match( emailRegex ) ) {

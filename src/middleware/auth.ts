@@ -3,7 +3,7 @@ import Client from '../../index';
 const { isAuthenticated } = require( '../utils/auth.utils' );
 
 module.exports = {
-    isLoggedApi: async( req: Request, res: Response, next: NextFunction ) => {
+    tokenCheck: async( req: Request, res: Response, next: NextFunction ) => {
         if ( req.headers.authorization === undefined ) {
             return res.status( 400 ).json( { message: 'Token not found' } );
         }
@@ -13,7 +13,6 @@ module.exports = {
         if ( !await isAuthenticated( Client, token ) ) {
             return res.status( 400 ).json( { message: 'Invalid token' } );
         }
-        // To get token in the next middleware
         res.locals.token = token;
         next();
     }

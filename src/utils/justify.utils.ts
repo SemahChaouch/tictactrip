@@ -1,9 +1,8 @@
 function addSpace(sentence: string): string {
     let i = 0;
-    while (sentence.length < 80 && i < 80) {
-        if (sentence.length < 40) {
-            break;
-        }
+    if (sentence.length < 65) {
+        return sentence;}
+    else { while (sentence.length < 80) {
         if (sentence[i] === ' ') {
             sentence = sentence.slice(0, i) + ' ' + sentence.slice(i);
             i += 2;
@@ -14,7 +13,8 @@ function addSpace(sentence: string): string {
             i = 0;
         }
     }
-    return sentence;
+    return sentence;}
+
   }
   
   function splitTextIntoParagraphs(text: string): string[] {
@@ -23,7 +23,7 @@ function addSpace(sentence: string): string {
   }
   
   function splitTextIntoSentences(text: string, maxCharacters: number): string[] {
-    const words: string[] = text.split(' ');
+    const words: string[] = text.replace('\n',' ').split(' ');
     let currentSentence: string = '';
     const sentences: string[] = [];
   

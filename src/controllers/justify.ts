@@ -4,13 +4,13 @@ import  justifyText from '../utils/justify.utils';
 
 export const postJustify = async( req: Request, res: Response ) => {
     const justifiedText = justifyText( req.body );
-    const nbWordsJustified: number = res.locals.nbWordsToJustify;
+    const nbWordsJustified: number = res.locals.wordsTojustify;
     const token: string = res.locals.token;
 
-    const nbWordsAlreadyJustified = await Client.get( res.locals.token );
+    const wordsJustified = await Client.get( res.locals.token );
 
-    nbWordsAlreadyJustified !== null ?
-        await Client.set( token, parseInt( nbWordsAlreadyJustified ) + nbWordsJustified )
+    wordsJustified !== null ?
+        await Client.set( token, parseInt( wordsJustified ) + nbWordsJustified )
         :
         await  Client.set( token, res.locals.nbWordsToJustify );
 
