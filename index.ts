@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use( bodyParser.text() );
 app.use('/', require('./src/routes'));
-if (test) {
+if (!test) {
 app.listen(port, () => {
     console.log( `server running on port ${port}` );})};
 
