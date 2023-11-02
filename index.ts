@@ -1,10 +1,11 @@
 import express from 'express';
 const redis = require('redis');
+const cors = require('cors');
 import bodyParser from 'body-parser';
-const test = true
+const test = false
 const app = express();
 const port = 3000;
-const Client = redis.createClient({ socket: { host: process.env.REDIS_HOST, port: process.env.REDIS_PORT } });
+const Client = redis.createClient({ socket: { host: '10.0.114.41', port: '6379' } });
 Client.connect();
 
 Client.on('error', (err: Error) => {
@@ -18,6 +19,7 @@ Client.on('connect', () => {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use( bodyParser.text() );
+app.use(cors());
 app.use('/', require('./src/routes'));
 if (!test) {
 app.listen(port, () => {

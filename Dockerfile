@@ -1,4 +1,4 @@
-FROM node:14 as base
+FROM  --platform=linux/amd64 node:14
 
 WORKDIR /home/node/app
 
@@ -9,6 +9,4 @@ RUN  npm i ts-node typescript
 
 COPY . .
 
-FROM base as production
-
-RUN npm run dev
+CMD ["npm", "run", "dev"]
