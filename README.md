@@ -37,7 +37,7 @@ We have two deployment options for this project:
 2. Kubernetes Deployment on Azure (AKS): If you want to deploy your application on a Kubernetes cluster, you can deploy it to Azure Kubernetes Service (AKS). Ensure you have an Azure account and kubectl set up. You can deploy your application using the deployments provided within the app.
 
   ```bash
-  kubectl apply -f kubernetes/eg
+  kubectl apply -f <ficherdedeploiement.yaml>
 ```
 
 ## Exposed app
