@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx jest --watchall",
+    "test": "npx jest --watchAll",
     "dev": "nodemon index.ts"
   },
   "keywords": [],
