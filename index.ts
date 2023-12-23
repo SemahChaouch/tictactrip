@@ -5,7 +5,7 @@ import bodyParser from 'body-parser';
 const test = true
 const app = express();
 const port = 3000;
-const Client = redis.createClient({ socket: { host: '10.0.114.41', port: '6379' } });
+const Client = redis.createClient({ socket: { host: '127.0.0.1', port: '6379' } });
 Client.connect();
 
 Client.on('error', (err: Error) => {
