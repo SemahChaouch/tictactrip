@@ -24,13 +24,6 @@ pipeline {
             }
         }
         
-        stage('SonarQube') {
-            steps {
-                withSonarQubeEnv('SonarQube') {
-                    sh 'npm run sonar'
-                }
-            }
-        }
         
         stage('Docker Image Build') {
             steps {
@@ -43,12 +36,6 @@ pipeline {
                 sh 'docker push tictactrip.azurecr.io/samples/back'
         }
         
-        stage('Terraform Init and Plan and apply') {
-            steps {
-                sh 'terraform init'
-                sh 'terraform plan'
-                sh 'terraform apply'            }
-        }
         
         stage('Kubernetes Deployment') {
             steps {
@@ -60,9 +47,6 @@ pipeline {
 
     }
     
-    post {
-        always {
-            // Add your declarative post steps here
-        }
-    }
+
+}
 }
