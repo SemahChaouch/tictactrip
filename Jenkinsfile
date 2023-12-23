@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     
-                    sh 'docker run -d -p 3000:3000 tictactrip.azurecr.io/samples/back'
+                    sh 'docker run -d -p 3000:3000 tictactrip'
 
 
                 }

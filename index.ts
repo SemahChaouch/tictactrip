@@ -2,10 +2,10 @@ import express from 'express';
 const redis = require('redis');
 const cors = require('cors');
 import bodyParser from 'body-parser';
-const test = true
+const test = false;
 const app = express();
 const port = 3000;
-const Client = redis.createClient({ socket: { host:'127.0.0.1', port: '6379' } });
+const Client = redis.createClient({ socket: { host:'20.216.159.129', port: '6379' } });
 Client.connect();
 
 Client.on('error', (err: Error) => {
