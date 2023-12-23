@@ -19,8 +19,6 @@ pipeline {
             steps {
                 script {
                     //delete old containers and run new ones
-                    sh 'docker stop $(docker ps -a -q)'
-                    sh 'docker rm $(docker ps -a -q)'
                     sh 'docker run -d -p 3000:3000 tictactrip.azurecr.io/samples/back'
 
 
